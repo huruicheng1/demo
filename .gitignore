@@ -1,0 +1,12 @@
+/Library
+/.idea
+/*.pidb
+/*.csproj
+/*.unityproj
+/*.sln
+/*.userprefs
+/confSource/output
+
+/.vs
+/.idea
+
