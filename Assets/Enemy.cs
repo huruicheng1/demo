@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     Transform model = default;
     
     
-    public EnemyFactory  OriginFactory
+    public EnemyFactory OriginFactory
     {
         get => originFactory;
         set
