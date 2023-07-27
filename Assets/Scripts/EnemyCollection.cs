@@ -3,7 +3,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class EnemyCollection
 {
-    private List<Enemy> enemies = new List<Enemy>();
+    List<Enemy> enemies = new List<Enemy>();
 
     public void Add(Enemy enemy)
     {

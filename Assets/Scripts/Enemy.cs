@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     DirectionChange directionChange;
     float directionAngleFrom, directionAngleTo;
     [SerializeField] 
-    Transform model = default;
+    Transform model = null;
     
     
     public EnemyFactory OriginFactory
@@ -18,10 +18,11 @@ public class Enemy : MonoBehaviour
         get => originFactory;
         set
         {
-            Debug.Assert(originFactory==null,"Redefined origin factory");
+            Debug.Assert(originFactory==null,"Redefined origin factory!");
             originFactory = value;
         }
     }
+    
     public void SpawnOn(GameTile tile)
     {
         
@@ -56,10 +57,11 @@ public class Enemy : MonoBehaviour
             progress -= 1f;
             PrepareNextState();
         }
-        transform.localPosition = 
-            Vector3.LerpUnclamped(positionFrom,positionTo,progress);
-        if (directionChange != DirectionChange.None)
-        {
+        if (directionChange == DirectionChange.None){
+            transform.localPosition = 
+                Vector3.LerpUnclamped(positionFrom,positionTo,progress);
+        }
+        else {
             float angle = Mathf.LerpUnclamped(
                 directionAngleFrom,directionAngleTo,progress
             );
@@ -82,7 +84,7 @@ public class Enemy : MonoBehaviour
             default:PrepareTurnAround();break;
         }
     }
-
+   
     void PrepareForward()
     {
         transform.localRotation = direction.GetRotation();
