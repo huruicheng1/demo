@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : GameBehavior
 {
     GameTile tileFrom, tileTo;
     Vector3 positionFrom, positionTo;
@@ -24,13 +24,13 @@ public class Enemy : MonoBehaviour
             originFactory = value;
         }
     }
-    public void Initialize(float scale,float speed,float pathOffset)
+    public void Initialize(float scale,float speed,float pathOffset,float health)
     {
         Scale = scale;
         model.localScale = new Vector3(scale, scale, scale);
         this.speed = speed;
         this.pathOffset = pathOffset;
-        Health = 100f * scale;
+        Health = health;
     }
 
     public void ApplyDamage(float damage)
@@ -47,11 +47,11 @@ public class Enemy : MonoBehaviour
         progress = 0f;
         PrepareIntro();
     }
-    public bool GameUpdate()
+    public override bool GameUpdate()
     {
         if (Health <= 0f)
         {
-            OriginFactory.Reclaim(this);
+            Recycle();
             return false;
         }
         progress += Time.deltaTime*progressFactor;
@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         {
             if (tileTo == null)
             {
-                OriginFactory.Reclaim(this);
+                Recycle();
                 return false;
             }
             progress = (progress-1f)/progressFactor;
@@ -78,6 +78,11 @@ public class Enemy : MonoBehaviour
         }
         return true;
     }
+
+    public override void Recycle()
+    {
+        OriginFactory.Reclaim(this);
+    }
     void PrepareNextState()
     {
         tileFrom = tileTo;
@@ -85,6 +90,7 @@ public class Enemy : MonoBehaviour
         positionFrom=positionTo;
         if (tileTo == null)
         {
+            Game.EnemyReachedDestination();
             PrepareOntro();
             return;
         }

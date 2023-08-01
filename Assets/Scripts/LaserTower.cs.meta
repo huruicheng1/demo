@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 01a1d969e91a86740b798c7b96d20b7b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - turret: {instanceID: 0}
+  - laserBeam: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
