@@ -10,6 +10,7 @@ public class TargetPoint : MonoBehaviour
     const int enemyLayerMask = 1 << 9;
     static Collider[] buffer = new Collider[100];
     public static int BufferedCount { get; private set; }
+    
     public static bool FillBuffer(Vector3 position, float range)
     {
         Vector3 top = position;
@@ -36,5 +37,6 @@ public class TargetPoint : MonoBehaviour
             "Target point without sphere collider!",this
         );
         Debug.Assert(gameObject.layer==9,"Target point on wrong layer!",this);
+        Enemy.TargetPointCollider = GetComponent<Collider>();
     }
 }

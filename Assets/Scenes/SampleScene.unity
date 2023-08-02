@@ -203,7 +203,7 @@ MonoBehaviour:
   tileContentFactory: {fileID: 11400000, guid: 7ae25539b61ecd4478105f1bd44b79b6, type: 2}
   warFactory: {fileID: 11400000, guid: 7f58140db181240448c38b7b8cd0664a, type: 2}
   scenario: {fileID: 11400000, guid: 1f8365590b82bac4781161295babacc2, type: 2}
-  startingPlayerHealth: 100
+  startingPlayerHealth: 10
   playSpeed: 1
 --- !u!4 &517396438
 Transform:

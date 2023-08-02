@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 9167973322458932983}
+  animationConfig: {fileID: 11400000, guid: 00f1b6d92c893904587e21d1f66de527, type: 2}
 --- !u!1 &6054000704130974258
 GameObject:
   m_ObjectHideFlags: 0

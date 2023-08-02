@@ -24,8 +24,8 @@ MonoBehaviour:
       min: -0.3
       max: 0.3
     health:
-      min: 40
-      max: 50
+      min: 50
+      max: 100
   medium:
     prefab: {fileID: 8935450837431970487, guid: 11daea34e19113e4db6a62008d4946d2, type: 3}
     scale:
@@ -38,8 +38,8 @@ MonoBehaviour:
       min: -0.2
       max: 0.2
     health:
-      min: 90
-      max: 120
+      min: 100
+      max: 500
   large:
     prefab: {fileID: 838574813592477390, guid: 16a60b400a12f1e48be60f7086055ef2, type: 3}
     scale:
@@ -53,4 +53,4 @@ MonoBehaviour:
       max: 0.1
     health:
       min: 500
-      max: 600
+      max: 1000

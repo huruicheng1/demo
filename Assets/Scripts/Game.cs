@@ -123,7 +123,7 @@ public class Game : MonoBehaviour
     {
         GameTile spawnPoint =
             instance.board.GetSpawnPoint(Random.Range(0, instance.board.SpawnPointCount));
-        Enemy enemy = factory.Get((EmenyType)(Random.Range(0,3)));
+        Enemy enemy = factory.Get(type);
         enemy.SpawnOn(spawnPoint);
         instance.enemies.Add(enemy);
     }
