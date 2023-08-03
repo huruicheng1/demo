@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Enemy : GameBehavior
 {
@@ -57,7 +58,7 @@ public class Enemy : GameBehavior
     void Awake()
     {
         animator.Configure(
-            model.GetChild(0).gameObject.AddComponent<Animator>(),
+            model.parent.gameObject.GetComponent<Animator>(),
             animationConfig
         );
     }
@@ -76,8 +77,17 @@ public class Enemy : GameBehavior
         progress = 0f;
         PrepareIntro();
     }
-    public override bool GameUpdate()
-    {
+    public override bool GameUpdate() {
+#if UNITY_EDITOR
+        if (!animator.IsValid)
+        {
+            animator.RestoreAfterHotReload(
+                model.GetChild(0).GetComponent<Animator>(),
+                animationConfig,
+                animationConfig.MoveAnimationSpeed*speed/Scale
+            );
+        }
+#endif
         animator.GameUpdate();
         if (animator.CurrentClip == EnemyAnimator.Clip.Intro)
         {
@@ -85,7 +95,7 @@ public class Enemy : GameBehavior
             {
                 return true;
             }
-            animator.PlayMove(speed/Scale);
+            animator.PlayMove(animationConfig.MoveAnimationSpeed*speed/Scale);
             targetPointCollider.enabled = true;
         }
         else if (animator.CurrentClip >= EnemyAnimator.Clip.Outro)

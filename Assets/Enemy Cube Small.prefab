@@ -196,4 +196,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1325199790382585723}
-  animationConfig: {fileID: 11400000, guid: 00f1b6d92c893904587e21d1f66de527, type: 2}
+  animationConfig: {fileID: 11400000, guid: 17df3e9582f0ad546ae8149e3625ab8e, type: 2}
