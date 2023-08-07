@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -58,7 +57,7 @@ public class Enemy : GameBehavior
     void Awake()
     {
         animator.Configure(
-            model.parent.gameObject.GetComponent<Animator>(),
+            model.GetChild(0).GetComponent<Animator>(),
             animationConfig
         );
     }

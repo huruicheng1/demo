@@ -5,7 +5,15 @@ using UnityEngine.Playables;
 
 public struct EnemyAnimator
 {
-    public enum Clip{Move,Intro,Outro,Dying,Appear,Disappear}
+    public enum Clip
+    {
+        Move,
+        Intro,
+        Outro,
+        Dying,
+        Appear,
+        Disappear
+    }
     AnimationMixerPlayable mixer;
     PlayableGraph graph;
     public Clip CurrentClip { get; private set; }
